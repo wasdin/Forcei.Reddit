@@ -36,12 +36,15 @@
 var url = document.baseURI;
 var location = url.indexOf("reddit.com");
 
+// if reddit.com is loaded, redirect the page to i.reddit.com
 if (url.indexOf('i.reddit.com') == -1) {
     alert(url.indexOf("i.reddit.com"));
     var temp = url.substring((location+10),url.length);
    var new_url = 'http://i.reddit.com' + temp;
     window.location.replace(new_url);
 } 
+
+// rewrite any links in the page to stay on the i.reddit.com subdomain 
 else {
     document.body.innerHTML = document.body.innerHTML.replace(/reddit.com/g, 'i.reddit.com');
 }
